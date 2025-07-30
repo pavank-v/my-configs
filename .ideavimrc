@@ -1,0 +1,62 @@
+" Leader key
+let mapleader = " "
+
+" Search behavior
+set nohlsearch
+set incsearch
+
+" --- Normal Mode Remaps ---
+map <C-y> yy
+
+" Buffer navigation (you may need a plugin like bufexplorer for :bnext/:bprevious)
+nnoremap <S-h> :bprevious<CR>
+nnoremap <S-l> :bnext<CR>
+
+" Splits
+nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>s :split<CR>
+
+" Pane navigation (mapped to IDE actions)
+nnoremap <leader>h :action FocusEditorLeft<CR>
+nnoremap <leader>j :action FocusEditorDown<CR>
+nnoremap <leader>k :action FocusEditorUp<CR>
+nnoremap <leader>l :action FocusEditorRight<CR>
+
+" File operations
+nnoremap <leader>w :w!<CR>
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>x :x!<CR>
+
+" Diagnostics (errors/warnings)
+nnoremap [d :action GotoPreviousError<CR>
+nnoremap ]d :action GotoNextError<CR>
+
+" Quick fix / code actions
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+
+" File search
+nnoremap <leader>f :action SearchEverywhere<CR>
+
+" Format document
+nnoremap <leader>p :action ReformatCode<CR>
+
+" Go to definition preview (approximation)
+nnoremap gh :action QuickJavaDoc<CR>
+
+" Center screen after scroll
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" --- Visual Mode Remaps ---
+" Use visual mode mappings with 'vmap' or 'vnoremap'
+
+" Indent/outdent without exiting visual mode
+vnoremap < <gv
+vnoremap > >gv
+
+" Move selected lines up/down
+vnoremap J :action MoveLineDown<CR>
+vnoremap K :action MoveLineUp<CR>
+
+" Toggle comment
+vnoremap <leader>c :action CommentByLineComment<CR>
