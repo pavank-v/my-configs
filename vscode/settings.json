@@ -52,10 +52,6 @@
   },
   "editor.lineNumbers": "relative",
   "editor.rulers": [80],
-  "workbench.colorCustomizations": {
-    "editorRuler.foreground": "#ffffff47"
-  },
-
 
   // Vim Settings
   "vim.handleKeys": {
@@ -96,6 +92,7 @@
     { "before": ["leader", "w"], "commands": [":w!"] },
     { "before": ["leader", "q"], "commands": [":q!"] },
     { "before": ["leader", "x"], "commands": [":x!"] },
+    { "before": ["g", "i"], "after": ["<C-o>"] },
     {
       "before": ["[", "d"],
       "commands": ["editor.action.marker.prev"]
@@ -105,10 +102,22 @@
       "commands": ["editor.action.marker.next"]
     },
     {
+      "before": ["[", "g"],
+      "commands": ["workbench.action.editor.previousChange"]
+    },
+    {
+      "before": ["]", "g"],
+      "commands": ["workbench.action.editor.nextChange"]
+    },
+    {
       "before": ["<leader>", "c", "a"],
       "commands": ["editor.action.quickFix"]
     },
     { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"] },
+    {
+      "before": ["<leader>", "g"],
+      "commands": ["livegrep.search"]
+    },
     { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
     {
       "before": ["g", "h"],
@@ -121,6 +130,14 @@
     {
       "before": ["<C-u>"],
       "after": ["<C-u>", "z", "z"]
+    },
+    {
+      "before": ["<leader>", "a"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
+    "before": ["<leader>", "T"],
+    "commands": ["workbench.action.terminal.new"]
     }
   ],
   "vim.visualModeKeyBindings": [
@@ -146,11 +163,49 @@
     "file:///home/pavan-kumar/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.7/dist/updateHandler.js"
   ],
   "liveServer.settings.donotVerifyTags": true,
-  "editor.fontSize": 16,
+  "editor.fontSize": 19,
   "chat.commandCenter.enabled": false,
   "window.commandCenter": false,
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
-  "window.menuBarVisibility": "compact"
-}
+  "window.menuBarVisibility": "compact",
+  "workbench.secondarySideBar.defaultVisibility": "visible",
+  "go.toolsManagement.autoUpdate": true,
+  "glassit-linux.opacity": 90,
 
+  "workbench.colorCustomizations": {
+    "editor.background": "#000000",
+    "editorRuler.foreground": "#ffffff47",
+    "sideBar.background": "#000000",
+    "activityBar.background": "#000000",
+    "titleBar.activeBackground": "#000000",
+    "terminal.background": "#000000"
+  },
+  "[dockercompose]": {
+    "editor.defaultFormatter": "docker.docker"
+  },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true,
+    "**/.venv": true,
+    "**/env": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.venv": true,
+    "**/env": true
+  },
+  "python.analysis.exclude": ["**/.venv", "**/env"],
+  "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+  "workbench.editor.enablePreviewFromQuickOpen": true,
+  "workbench.editor.showTabIndex": true,
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "debug.console.fontSize": 19,
+  "terminal.integrated.fontSize": 17,
+  "chat.editor.fontSize": 19,
+  "chat.fontSize": 19,
+  "markdown.preview.fontSize": 19,
+  "tailwindCSS.rootFontSize": 19,
+}
